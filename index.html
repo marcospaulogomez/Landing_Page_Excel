@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curso de Excel Prático: Do Básico ao Intermediário | Prof. Marcos Gomez</title>
+  <meta name="description" content="Aprenda Excel de verdade com o Método DDF (Dados, Design e Função). Curso 100% prático do básico ao intermediário com o Prof. Marcos Gomez. Por apenas R$ 49,90!">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22 width=%22100%22 height=%22100%22><text y=%22.9em%22 font-size=%2290%22>📊</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            excel: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              200: '#bbf7d0',
+              500: '#22c55e',
+              600: '#16a34a',
+              700: '#15803d',
+              800: '#107c41', // Verde clássico do Excel
+              900: '#0c5c30',
+            },
+            brand: {
+              dark: '#0b1320',
+              card: '#131e32',
+              accent: '#10b981',
+              gold: '#f59e0b',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+          },
+          animation: {
+            'pulse-subtle': 'pulseSubtle 2.5s infinite',
+            'float': 'float 3s ease-in-out infinite',
+          },
+          keyframes: {
+            pulseSubtle: {
+              '0%, 100%': { transform: 'scale(1)', boxShadow: '0 10px 25px -5px rgba(16, 185, 129, 0.4)' },
+              '50%': { transform: 'scale(1.03)', boxShadow: '0 20px 35px -5px rgba(16, 185, 129, 0.6)' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-6px)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .gradient-hero {
+      background: radial-gradient(circle at 50% 20%, rgba(16, 124, 65, 0.18) 0%, rgba(11, 19, 32, 1) 70%);
+    }
+    .card-glass {
+      background: rgba(19, 30, 50, 0.7);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .card-glass-hover:hover {
+      border-color: rgba(16, 185, 129, 0.4);
+      transform: translateY(-3px);
+      transition: all 0.3s ease;
+    }
+  </style>
+
+  <!-- Carrega configurações externas com proteção Git -->
+  <script src="config.js" onerror="console.warn('config.js não encontrado, usando fallback');"></script>
+</head>
+<body class="bg-brand-dark text-slate-100 font-sans antialiased selection:bg-excel-600 selection:text-white">
+
+  <!-- ================= TOP PROMO BAR ================= -->
+  <div class="bg-gradient-to-r from-excel-800 via-excel-600 to-emerald-700 py-2.5 px-4 text-center text-xs md:text-sm font-semibold tracking-wide shadow-md flex items-center justify-center gap-2">
+    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-bold bg-white text-excel-800 uppercase tracking-wider animate-pulse">
+      Lote Promocional
+    </span>
+    <span>Turma Especial de Lançamento por apenas <strong class="text-white text-base">R$ 49,90</strong></span>
+    <span class="hidden md:inline text-white/80">| Vagas com desconto por tempo limitado</span>
+    <a href="#oferta" class="underline hover:text-white ml-2 text-xs font-bold">Garantir vaga &rarr;</a>
+  </div>
+
+  <!-- ================= HEADER / NAVEGAÇÃO ================= -->
+  <header class="sticky top-0 z-40 bg-brand-dark/90 backdrop-blur-md border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-excel-600 to-excel-800 flex items-center justify-center shadow-lg shadow-excel-900/40 text-white font-extrabold text-xl group-hover:scale-105 transition-transform">
+          X
+        </div>
+        <div class="flex flex-col">
+          <span class="font-extrabold text-base md:text-lg tracking-tight text-white flex items-center gap-1.5">
+            Prof. Marcos Gomez
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+          </span>
+          <span class="text-xs text-emerald-400/90 font-medium tracking-wide">Excel Descomplicado • Método DDF</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+        <a href="#metodo" class="hover:text-emerald-400 transition-colors">O Método DDF</a>
+        <a href="#conteudo" class="hover:text-emerald-400 transition-colors">Conteúdo Prático</a>
+        <a href="#projetos" class="hover:text-emerald-400 transition-colors">Projetos</a>
+        <a href="#professor" class="hover:text-emerald-400 transition-colors">Quem é o Prof. Marcos</a>
+        <a href="#faq" class="hover:text-emerald-400 transition-colors">Dúvidas</a>
+      </nav>
+
+      <!-- Header CTA -->
+      <div class="flex items-center gap-3">
+        <a href="#oferta" class="hotmart-btn inline-flex items-center justify-center px-5 py-2.5 rounded-lg text-sm font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 shadow-md shadow-emerald-500/20 transition-all hover:scale-105">
+          Matricule-se por R$ 49,90
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================= HERO SECTION ================= -->
+    <section class="relative pt-12 pb-20 md:pt-20 md:pb-32 gradient-hero overflow-hidden border-b border-slate-800/60">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        <div class="text-center max-w-4xl mx-auto space-y-6">
+          
+          <!-- Badge -->
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-950/80 border border-emerald-500/30 text-emerald-300 text-xs md:text-sm font-medium">
+            <svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+            <span>Curso 100% Prático • Do Zero ao Intermediário Seguro</span>
+          </div>
+
+          <!-- Headline -->
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15]">
+            Pare de travar e perder horas no Excel: <br class="hidden sm:inline">
+            Aprenda a criar <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-emerald-300 to-green-500">planilhas profissionais</span> que impressionam.
+          </h1>
+
+          <!-- Subheadline -->
+          <p class="text-base sm:text-xl text-slate-300 font-normal max-w-3xl mx-auto leading-relaxed">
+            Sem teorias cansativas. Domine o <strong>Método DDF (Dados, Design e Função)</strong> com quem foi professor de cursos profissionalizantes por anos. Aprenda com exemplos práticos do cotidiano: controle de supermercado, boletins escolares e gestão de estoque.
+          </p>
+
+          <!-- CTAs e Urgência -->
+          <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="#oferta" class="hotmart-btn animate-pulse-subtle w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl text-lg font-extrabold bg-gradient-to-r from-emerald-500 via-emerald-400 to-green-500 text-slate-950 shadow-xl shadow-emerald-500/25 hover:opacity-95 transition-all">
+              <span>QUERO APRENDER POR R$ 49,90</span>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+              </svg>
+            </a>
+
+            <a href="#conteudo" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl text-sm font-semibold bg-slate-800/80 hover:bg-slate-700/80 text-slate-200 border border-slate-700 transition-all">
+              <span>Ver Grade Completa</span>
+              <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Micro Prova Social & Garantias -->
+          <div class="pt-6 flex flex-wrap items-center justify-center gap-6 sm:gap-8 text-xs sm:text-sm text-slate-400">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+              <span>Acesso Imediato pela <strong>Hotmart</strong></span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+              <span>Garantia Incondicional de <strong>7 Dias</strong></span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+              <span>Exercícios Práticos com Download</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ================= VISUAL MOCKUP ================= -->
+        <div class="mt-14 max-w-5xl mx-auto">
+          <div class="relative rounded-2xl p-1 bg-gradient-to-b from-emerald-500/30 via-slate-700/30 to-transparent shadow-2xl">
+            <div class="rounded-xl overflow-hidden card-glass">
+              
+              <!-- Janela Estilo Excel Desktop -->
+              <div class="bg-slate-900/90 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <span class="w-3 h-3 rounded-full bg-rose-500/80"></span>
+                  <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
+                  <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
+                  <span class="text-xs font-mono text-slate-400 ml-3">Projeto_Supermercado_Estoque_PROCV.xlsx</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-xs px-2.5 py-1 rounded bg-excel-800/80 text-emerald-300 font-mono font-medium">Método DDF Ativo</span>
+                </div>
+              </div>
+
+              <!-- Prévia Interativa / Visual do Dashboard -->
+              <div class="p-4 sm:p-6 bg-slate-950/70 space-y-4">
+                
+                <!-- Barra de Fórmulas -->
+                <div class="bg-slate-900 p-2.5 rounded-lg border border-slate-800 flex items-center gap-3 text-xs font-mono">
+                  <span class="text-slate-500 font-bold">fx</span>
+                  <span class="text-emerald-400 font-semibold">=SE(E(C4&gt;=7; D4&gt;=75%); "APROVADO"; "REPROVADO")</span>
+                  <span class="ml-auto text-slate-500 text-[11px] hidden sm:inline">PROCV | SE Aninhado | Lógica E/OU</span>
+                </div>
+
+                <!-- Tabela Estilizada -->
+                <div class="overflow-x-auto">
+                  <table class="w-full text-left text-xs sm:text-sm font-mono border-collapse">
+                    <thead>
+                      <tr class="bg-slate-900 text-slate-400 border-b border-slate-800">
+                        <th class="p-2.5 text-center">#</th>
+                        <th class="p-2.5">PRODUTO / ITEM</th>
+                        <th class="p-2.5">QTD ESTOQUE</th>
+                        <th class="p-2.5">STATUS (SE ANINHADO)</th>
+                        <th class="p-2.5">PREÇO BASE</th>
+                        <th class="p-2.5 text-right">TOTAL (PROCV + DESC)</th>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-850 text-slate-200">
+                      <tr class="hover:bg-slate-900/50">
+                        <td class="p-2.5 text-center text-slate-500">1</td>
+                        <td class="p-2.5 font-medium text-white">Arroz Tipo 1 - 5kg</td>
+                        <td class="p-2.5">12 un</td>
+                        <td class="p-2.5"><span class="px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800/50 text-xs">NORMAL</span></td>
+                        <td class="p-2.5">R$ 29,90</td>
+                        <td class="p-2.5 text-right text-emerald-400 font-bold">R$ 358,80</td>
+                      </tr>
+                      <tr class="hover:bg-slate-900/50">
+                        <td class="p-2.5 text-center text-slate-500">2</td>
+                        <td class="p-2.5 font-medium text-white">Feijão Carioca - 1kg</td>
+                        <td class="p-2.5 text-rose-400 font-semibold">2 un</td>
+                        <td class="p-2.5"><span class="px-2 py-0.5 rounded bg-rose-950 text-rose-400 border border-rose-800/50 text-xs">EM FALTA</span></td>
+                        <td class="p-2.5">R$ 7,50</td>
+                        <td class="p-2.5 text-right text-emerald-400 font-bold">R$ 15,00</td>
+                      </tr>
+                      <tr class="hover:bg-slate-900/50">
+                        <td class="p-2.5 text-center text-slate-500">3</td>
+                        <td class="p-2.5 font-medium text-white">Óleo de Soja 900ml</td>
+                        <td class="p-2.5 text-amber-400 font-semibold">85 un</td>
+                        <td class="p-2.5"><span class="px-2 py-0.5 rounded bg-amber-950 text-amber-400 border border-amber-800/50 text-xs">EXCESSO</span></td>
+                        <td class="p-2.5">R$ 5,80</td>
+                        <td class="p-2.5 text-right text-emerald-400 font-bold">R$ 493,00</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <!-- Destaques do Projeto no Rodapé da Imagem -->
+                <div class="pt-2 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-400 border-t border-slate-800/80">
+                  <div class="flex items-center gap-2">
+                    <span class="inline-block w-2 h-2 rounded-full bg-emerald-500"></span>
+                    <span>Higienização e formatação profissional aplicada</span>
+                  </div>
+                  <div class="text-emerald-400 font-semibold">
+                    100% reproduzível passo a passo nas aulas
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= VOCÊ SE IDENTIFICA? (DORES) ================= -->
+    <section class="py-16 md:py-24 bg-brand-dark border-b border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-14 space-y-4">
+          <h2 class="text-xs uppercase font-extrabold tracking-widest text-emerald-400">Desafios Comuns</h2>
+          <h3 class="text-2xl sm:text-4xl font-extrabold text-white">Você já passou por alguma dessas situações?</h3>
+          <p class="text-slate-400 text-sm sm:text-base">Muitas pessoas acham que o Excel é um bicho de sete cabeças, mas a verdade é que nunca te ensinaram com a didática certa.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <!-- Card 1 -->
+          <div class="p-6 rounded-2xl card-glass card-glass-hover space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-rose-950/80 border border-rose-500/30 flex items-center justify-center text-rose-400 text-xl font-bold">
+              ⚠️
+            </div>
+            <h4 class="text-lg font-bold text-white">Medo de errar fórmulas na frente do chefe</h4>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Quando alguém pede um cálculo ou relatório urgente, você gela na cadeira com medo do temido erro <code class="text-rose-400 font-mono">#N/D</code> ou <code class="text-rose-400 font-mono">#VALOR!</code>.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="p-6 rounded-2xl card-glass card-glass-hover space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-amber-950/80 border border-amber-500/30 flex items-center justify-center text-amber-400 text-xl font-bold">
+              ⏳
+            </div>
+            <h4 class="text-lg font-bold text-white">Horas perdidas com tarefas manuais e repetitivas</h4>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Você passa a tarde inteira copiando, colando e calculando na calculadora o que uma simples fórmula do Excel resolveria em 3 segundos.
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="p-6 rounded-2xl card-glass card-glass-hover space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-sky-950/80 border border-sky-500/30 flex items-center justify-center text-sky-400 text-xl font-bold">
+              💼
+            </div>
+            <h4 class="text-lg font-bold text-white">Perdendo oportunidades e promoções</h4>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Em processos seletivos e no dia a dia da empresa, o Excel não é mais "diferencial": é o requisito mínimo para quem quer crescer e ganhar melhor.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= O MÉTODO DDF ================= -->
+    <section id="metodo" class="py-16 md:py-24 bg-slate-900/50 border-b border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-emerald-950 text-emerald-400 border border-emerald-800">
+            O Segredo da Didática
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+            Conheça o Método DDF: <br class="hidden sm:inline">
+            <span class="text-emerald-400">Dados, Design e Função</span>
+          </h2>
+          <p class="text-slate-300 text-base">
+            Não adianta decorar dezenas de fórmulas se a planilha for desorganizada ou confusa. Uma boa planilha precisa dos 3 pilares em equilíbrio:
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <!-- Pilar D - Dados -->
+          <div class="relative p-8 rounded-2xl bg-brand-card border border-slate-800 card-glass-hover space-y-4">
+            <div class="w-14 h-14 rounded-2xl bg-emerald-950 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-black text-2xl">
+              D
+            </div>
+            <h3 class="text-xl font-bold text-white">1. Organização dos Dados</h3>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              Aprenda a montar e higienizar a base corretamente. Sem dados bem estruturados, qualquer fórmula dá erro. Você vai aprender a preparar planilhas limpas e à prova de falhas.
+            </p>
+            <div class="pt-2 text-xs font-semibold text-emerald-400 flex items-center gap-1.5">
+              <span>Higienização • Estruturação • Tipos de Dados</span>
+            </div>
+          </div>
+
+          <!-- Pilar D - Design -->
+          <div class="relative p-8 rounded-2xl bg-brand-card border border-slate-800 card-glass-hover space-y-4">
+            <div class="w-14 h-14 rounded-2xl bg-emerald-950 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-black text-2xl">
+              D
+            </div>
+            <h3 class="text-xl font-bold text-white">2. Design & Visualização</h3>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              Uma planilha precisa ser agradável e intuitiva. Com um design bem aplicado, qualquer chefe, colega ou cliente bate o olho e entende os resultados em segundos.
+            </p>
+            <div class="pt-2 text-xs font-semibold text-emerald-400 flex items-center gap-1.5">
+              <span>Formatação Elegante • Hierarquia • Clareza</span>
+            </div>
+          </div>
+
+          <!-- Pilar F - Função -->
+          <div class="relative p-8 rounded-2xl bg-brand-card border border-slate-800 card-glass-hover space-y-4">
+            <div class="w-14 h-14 rounded-2xl bg-emerald-950 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-black text-2xl">
+              F
+            </div>
+            <h3 class="text-xl font-bold text-white">3. Funções Corretas</h3>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              Chega de decoreba. Você vai entender a lógica matemática e booleana por trás de cada fórmula (SE, PROCV, Operadores E/OU, Estatísticas) para aplicá-las com total segurança.
+            </p>
+            <div class="pt-2 text-xs font-semibold text-emerald-400 flex items-center gap-1.5">
+              <span>Lógica Booleana • Automatização • PROCV Seguro</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Chamada DDF -->
+        <div class="mt-12 text-center">
+          <a href="#oferta" class="hotmart-btn inline-flex items-center gap-2 text-emerald-400 font-bold hover:text-emerald-300 text-sm md:text-base group">
+            <span>Quero dominar o Método DDF na prática por apenas R$ 49,90</span>
+            <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= CONTEÚDO PROGRAMÁTICO (ACORDEÃO) ================= -->
+    <section id="conteudo" class="py-16 md:py-24 bg-brand-dark border-b border-slate-800">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center space-y-4 mb-14">
+          <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-emerald-950 text-emerald-400 border border-emerald-800">
+            Grade Curricular Completa
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+            Conteúdo Programático 100% Prático
+          </h2>
+          <p class="text-slate-400 text-sm sm:text-base">
+            Cada aula foi planejada para resolver um problema real do dia a dia, com arquivos de apoio para você acompanhar no seu próprio computador.
+          </p>
+        </div>
+
+        <!-- Accordion Container -->
+        <div class="space-y-4">
+
+          <!-- MÓDULO 1 -->
+          <div class="rounded-xl border border-slate-800 bg-brand-card overflow-hidden transition-colors">
+            <button onclick="toggleAccordion(1)" class="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 focus:outline-none">
+              <div class="flex items-center gap-4">
+                <span class="w-10 h-10 rounded-lg bg-excel-950 border border-excel-600/40 text-emerald-400 flex items-center justify-center font-bold text-sm shrink-0">
+                  M1
+                </span>
+                <div>
+                  <h3 class="text-base sm:text-lg font-bold text-white">Básicas e Estatísticas Essenciais</h3>
+                  <p class="text-xs text-slate-400">SOMA, MÁXIMO, MÍNIMO, MAIOR, MENOR e Higienização de Base</p>
+                </div>
+              </div>
+              <svg id="module-icon-1" class="w-5 h-5 text-slate-400 transform transition-transform duration-200 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div id="module-content-1" class="hidden px-6 pb-6 pt-2 border-t border-slate-800/60 bg-slate-950/40">
+              <ul class="space-y-2.5 text-sm text-slate-300">
+                <li class="flex items-start gap-2.5">
+                  <span class="text-emerald-400 font-bold mt-0.5">✓</span>
+                  <span><strong>Pesquisa de preços de supermercado:</strong> Montagem prática e higienização da base de dados do zero.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-emerald-400 font-bold mt-0.5">✓</span>
+                  <span><strong>MÁXIMO e MÍNIMO:</strong> Encontrando extremos de valores em instantes.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-emerald-400 font-bold mt-0.5">✓</span>
+                  <span><strong>MAIOR e MENOR:</strong> Construção de rankings, posições e análises competitivas.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-emerald-400 font-bold mt-0.5">✓</span>
+                  <span>Boas práticas para nunca errar a seleção de intervalos no teclado.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- MÓDULO 2 -->
+          <div class="rounded-xl border border-slate-800 bg-brand-card overflow-hidden transition-colors">
+            <button onclick="toggleAccordion(2)" class="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 focus:outline-none">
+              <div class="flex items-center gap-4">
+                <span class="w-10 h-10 rounded-lg bg-excel-950 border border-excel-600/40 text-emerald-400 flex items-center justify-center font-bold text-sm shrink-0">
+                  M2
+                </span>
+                <div>
+                  <h3 class="text-base sm:text-lg font-bold text-white">A Função SE Simples e a Lógica Booleana</h3>
+                  <p class="text-xs text-slate-400">Desvendando os testes lógicos sem decoreba</p>
+                </div>
+              </div>
+              <svg id="module-icon-2" class="w-5 h-5 text-slate-400 transform transition-transform duration-200 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div id="module-content-2" class="hidden px-6 pb-6 pt-2 border-t border-slate-800/60 bg-slate-950/40">
+              <ul class="space-y-2.5 text-sm text-slate-300">
+                <li class="flex items-start gap-2.5">
+                  <span class="text-emerald-400 font-bold mt-0.5">✓</span>
+                  <span><strong>Fundamentos da lógica booleana:</strong> O que é Verdadeiro e Falso na mente do Excel.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-emerald-400 font-bold mt-0.5">✓</span>
+                  <span><strong>Anatomia da Função SE:</strong> Teste lógico, valor_se_verdadeiro e valor_se_falso com clareza total.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-emerald-400 font-bold mt-0.5">✓</span>
+                  <span><strong>Projeto Boletim Escolar 1:</strong> Cálculo automático de MÉDIA + decisão de Aprovado / Reprovado.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- MÓDULO 3 -->
+          <div class="rounded-xl border border-slate-800 bg-brand-card overflow-hidden transition-colors">
+            <button onclick="toggleAccordion(3)" class="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 focus:outline-none">
+              <div class="flex items-center gap-4">
+                <span class="w-10 h-10 rounded-lg bg-excel-950 border border-excel-600/40 text-emerald-400 flex items-center justify-center font-bold text-sm shrink-0">
+                  M3
+                </span>
+                <div>
+                  <h3 class="text-base sm:text-lg font-bold text-white">Função SE Aninhada (Múltiplas Condições)</h3>
+                  <p class="text-xs text-slate-400">Tomadas de decisão inteligentes em camadas</p>
+                </div>
+              </div>
+              <svg id="module-icon-3" class="w-5 h-5 text-slate-400 transform transition-transform duration-200 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div id="module-content-3" class="hidden px-6 pb-6 pt-2 border-t border-slate-800/60 bg-slate-950/40">
+              <ul class="space-y-2.5 text-sm text-slate-300">
+                <li class="flex items-start gap-2.5">
+                  <span class="text-emerald-400 font-bold mt-0.5">✓</span>
+                  <span>Como pensar em árvores de decisão sem se perder entre parênteses.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-emerald-400 font-bold mt-0.5">✓</span>
+                  <span><strong>Projeto Gestão de Estoque:</strong> Regras automáticas em 3 níveis (Em Falta, Normal, Excesso).</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-emerald-400 font-bold mt-0.5">✓</span>
+                  <span>Aplicação prática de formatação condicional associada ao resultado da SE.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- MÓDULO 4 -->
+          <div class="rounded-xl border border-slate-800 bg-brand-card overflow-hidden transition-colors">
+            <button onclick="toggleAccordion(4)" class="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 focus:outline-none">
+              <div class="flex items-center gap-4">
+                <span class="w-10 h-10 rounded-lg bg-excel-950 border border-excel-600/40 text-emerald-400 flex items-center justify-center font-bold text-sm shrink-0">
+                  M4
+                </span>
+                <div>
+                  <h3 class="text-base sm:text-lg font-bold text-white">Operadores Lógicos (Tabela Verdade E / OU)</h3>
+                  <p class="text-xs text-slate-400">Decisões avançadas combinando critérios múltiplos</p>
+                </div>
+              </div>
+              <svg id="module-icon-4" class="w-5 h-5 text-slate-400 transform transition-transform duration-200 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div id="module-content-4" class="hidden px-6 pb-6 pt-2 border-t border-slate-800/60 bg-slate-950/40">
+              <ul class="space-y-2.5 text-sm text-slate-300">
+                <li class="flex items-start gap-2.5">
+                  <span class="text-emerald-400 font-bold mt-0.5">✓</span>
+                  <span><strong>Fundamentos da Tabela Verdade:</strong> Quando usar o operador E e quando usar o OU.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-emerald-400 font-bold mt-0.5">✓</span>
+                  <span><strong>Projeto Boletim Escolar 2:</strong> Avaliação conjunta de Nota E Frequência mínima escolar.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-emerald-400 font-bold mt-0.5">✓</span>
+                  <span><strong>Políticas de Desconto Comercial:</strong> Descontos por volume OU forma de pagamento (À vista/PIX).</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-emerald-400 font-bold mt-0.5">✓</span>
+                  <span><strong>Bateria de Exercícios:</strong> Consolidação de SE aninhado com operadores combinados.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- MÓDULO 5 -->
+          <div class="rounded-xl border border-slate-800 bg-brand-card overflow-hidden transition-colors">
+            <button onclick="toggleAccordion(5)" class="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 focus:outline-none">
+              <div class="flex items-center gap-4">
+                <span class="w-10 h-10 rounded-lg bg-excel-950 border border-excel-600/40 text-emerald-400 flex items-center justify-center font-bold text-sm shrink-0">
+                  M5
+                </span>
+                <div>
+                  <h3 class="text-base sm:text-lg font-bold text-white">PROCV Definitivo & Travamento de Células ($)</h3>
+                  <p class="text-xs text-slate-400">A fórmula mais exigida pelas empresas explicada passo a passo</p>
+                </div>
+              </div>
+              <svg id="module-icon-5" class="w-5 h-5 text-slate-400 transform transition-transform duration-200 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div id="module-content-5" class="hidden px-6 pb-6 pt-2 border-t border-slate-800/60 bg-slate-950/40">
+              <ul class="space-y-2.5 text-sm text-slate-300">
+                <li class="flex items-start gap-2.5">
+                  <span class="text-emerald-400 font-bold mt-0.5">✓</span>
+                  <span><strong>A Lógica da Procura Vertical:</strong> Como o Excel enxerga tabelas e vetores.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-emerald-400 font-bold mt-0.5">✓</span>
+                  <span><strong>Travamento de células com Cifrão ($):</strong> Entenda a diferença entre referências relativas e absolutas.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-emerald-400 font-bold mt-0.5">✓</span>
+                  <span><strong>Parametrização segura:</strong> Matriz-tabela, número índice de coluna e correspondência exata (FALSO/0).</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-emerald-400 font-bold mt-0.5">✓</span>
+                  <span><strong>Projeto Final Integrador:</strong> Emissão de Comprovante de Supermercado Automatizado.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="mt-8 p-4 rounded-xl bg-emerald-950/50 border border-emerald-500/20 text-center text-xs sm:text-sm text-emerald-300">
+          💡 <strong>Você recebe todas as planilhas das aulas limpas e preenchidas</strong> para praticar enquanto assiste!
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= PROJETOS DO CURSO ================= -->
+    <section id="projetos" class="py-16 md:py-24 bg-slate-900/60 border-b border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-14 space-y-4">
+          <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-emerald-950 text-emerald-400 border border-emerald-800">
+            Aprenda Fazendo
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+            Projetos Reais Que Você Vai Construir
+          </h2>
+          <p class="text-slate-300 text-sm sm:text-base">
+            Nada de exercícios chatos de matemática que ninguém usa no trabalho. No curso você constrói ferramentas úteis para o seu currículo:
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <div class="p-6 rounded-2xl bg-brand-card border border-slate-800 space-y-3">
+            <span class="text-3xl">🛒</span>
+            <h4 class="text-base font-bold text-white">Pesquisa de Supermercado</h4>
+            <p class="text-xs text-slate-400">Higienização de dados brutos, análise de menor/maior preço e rankings comparativos.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-brand-card border border-slate-800 space-y-3">
+            <span class="text-3xl">🎓</span>
+            <h4 class="text-base font-bold text-white">Boletim Escolar Inteligente</h4>
+            <p class="text-xs text-slate-400">Cálculo de médias ponderadas, regras de frequência e aprovação automatizada com operadores E/OU.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-brand-card border border-slate-800 space-y-3">
+            <span class="text-3xl">📦</span>
+            <h4 class="text-base font-bold text-white">Controle de Estoque 3 Níveis</h4>
+            <p class="text-xs text-slate-400">Função SE aninhada para alertar em tempo real: Em Falta, Normal ou Excesso de mercadorias.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-brand-card border border-slate-800 space-y-3">
+            <span class="text-3xl">🧾</span>
+            <h4 class="text-base font-bold text-white">Comprovante Comercial</h4>
+            <p class="text-xs text-slate-400">PROCV parametrizado com travamento seguro ($) buscando produtos e aplicando descontos automáticos.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= SOBRE O PROFESSOR ================= -->
+    <section id="professor" class="py-16 md:py-24 bg-brand-dark border-b border-slate-800">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Foto / Avatar do Professor -->
+          <div class="lg:col-span-5 flex flex-col items-center text-center">
+            <div class="relative w-56 h-56 sm:w-64 sm:h-64 rounded-3xl overflow-hidden p-1 bg-gradient-to-tr from-emerald-500 via-excel-600 to-emerald-400 shadow-2xl shadow-emerald-950/60">
+              <!-- Se você tiver uma foto em assets/images/professor.jpg, ela carrega aqui; caso contrário usa o avatar estiloso -->
+              <img 
+                src="assets/images/professor.jpg" 
+                alt="Prof. Marcos Gomez" 
+                class="w-full h-full object-cover rounded-[22px] bg-slate-900"
+                onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80';"
+              >
+            </div>
+
+            <!-- Redes Sociais do Professor -->
+            <div class="mt-6 flex items-center gap-3">
+              <a href="#" target="_blank" rel="noopener" class="instagram-link inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-xs font-semibold text-pink-400 border border-slate-700 transition-all">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                <span>Instagram</span>
+              </a>
+
+              <a href="#" target="_blank" rel="noopener" class="youtube-link inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-xs font-semibold text-rose-400 border border-slate-700 transition-all">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                <span>YouTube</span>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Texto do Professor -->
+          <div class="lg:col-span-7 space-y-5 text-left">
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-emerald-950 text-emerald-400 border border-emerald-800">
+              Instrutor & Mentor
+            </span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+              Quem é o Prof. Marcos Gomez?
+            </h2>
+            
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+              Com anos de experiência ensinando em salas de aula de <strong>cursos profissionalizantes</strong>, o Prof. Marcos Gomez desenvolveu uma metodologia única focada em resolver o maior obstáculo dos alunos: <em>a linguagem técnica difícil dos cursos tradicionais</em>.
+            </p>
+
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+              Sua didática é especialmente desenhada para ser <strong>acessível tanto para adolescentes iniciando a carreira quanto para adultos</strong> que precisam se atualizar rapidamente no mercado de trabalho.
+            </p>
+
+            <!-- Destaques em Pills -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+              <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 flex items-center gap-3">
+                <span class="text-xl">👨‍🏫</span>
+                <span class="text-xs text-slate-300 font-medium">Ex-professor de cursos profissionalizantes</span>
+              </div>
+              <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 flex items-center gap-3">
+                <span class="text-xl">🎯</span>
+                <span class="text-xs text-slate-300 font-medium">Criador do Método DDF (Dados, Design e Função)</span>
+              </div>
+              <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 flex items-center gap-3">
+                <span class="text-xl">💬</span>
+                <span class="text-xs text-slate-300 font-medium">Didática sem termos difíceis ou enrolação</span>
+              </div>
+              <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 flex items-center gap-3">
+                <span class="text-xl">⭐</span>
+                <span class="text-xs text-slate-300 font-medium">Suporte e atenção dedicada aos alunos</span>
+              </div>
+            </div>
+
+            <div class="pt-2">
+              <a href="#oferta" class="hotmart-btn inline-flex items-center gap-2 text-sm font-bold text-emerald-400 hover:text-emerald-300">
+                <span>Comece a aprender com o Prof. Marcos hoje mesmo &rarr;</span>
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= CAPTURA DE LEADS (PLANILHA GRÁTIS) ================= -->
+    <section class="py-16 md:py-24 bg-gradient-to-b from-brand-dark to-slate-950 border-b border-slate-800">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="p-8 sm:p-12 rounded-3xl bg-brand-card border border-emerald-500/30 shadow-2xl relative overflow-hidden">
+          
+          <div class="absolute -right-16 -top-16 w-48 h-48 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+          <div class="text-center max-w-2xl mx-auto space-y-3 mb-8">
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-emerald-950 text-emerald-400 border border-emerald-800">
+              Presente Gratuito
+            </span>
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-white">
+              Quer receber uma amostra grátis das planilhas do curso?
+            </h3>
+            <p class="text-slate-300 text-xs sm:text-sm">
+              Cadastre seu contato para receber o modelo de <strong>Pesquisa de Preços & Cotação de Supermercado</strong> diretamente no seu e-mail ou WhatsApp, além de avisos de aulas ao vivo e descontos.
+            </p>
+          </div>
+
+          <!-- Formulário -->
+          <form id="leadCaptureForm" class="max-w-xl mx-auto space-y-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1.5">Seu Nome Completo</label>
+              <input 
+                type="text" 
+                name="nome" 
+                required 
+                placeholder="Ex: João da Silva" 
+                class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-emerald-500 transition-colors"
+              >
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-slate-300 mb-1.5">Seu Melhor E-mail</label>
+                <input 
+                  type="email" 
+                  name="email" 
+                  required 
+                  placeholder="seuemail@exemplo.com" 
+                  class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-emerald-500 transition-colors"
+                >
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-300 mb-1.5">WhatsApp (com DDD)</label>
+                <input 
+                  type="tel" 
+                  name="whatsapp" 
+                  required 
+                  placeholder="(11) 99999-9999" 
+                  class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-emerald-500 transition-colors"
+                >
+              </div>
+            </div>
+
+            <button 
+              type="submit" 
+              class="w-full py-3.5 px-6 rounded-xl font-bold text-slate-950 bg-gradient-to-r from-emerald-400 to-green-500 hover:from-emerald-300 hover:to-green-400 shadow-lg shadow-emerald-500/20 text-sm sm:text-base transition-all hover:scale-[1.01]"
+            >
+              Quero Receber a Planilha Grátis no WhatsApp/E-mail
+            </button>
+
+            <p class="text-center text-[11px] text-slate-500">
+              🔒 Seus dados estão 100% seguros. Não enviamos spam.
+            </p>
+          </form>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= OFERTA ESPECIAL / PREÇO (HOTMART) ================= -->
+    <section id="oferta" class="py-20 md:py-32 bg-brand-dark relative overflow-hidden">
+      
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-emerald-900/20 via-brand-dark to-brand-dark pointer-events-none"></div>
+
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        <div class="text-center max-w-2xl mx-auto space-y-4 mb-12">
+          <span class="inline-block px-3 py-1 rounded-full text-xs font-extrabold bg-emerald-950 text-emerald-400 border border-emerald-800 uppercase tracking-widest">
+            Investimento Acessível
+          </span>
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-white">
+            Quanto custa transformar suas habilidades no Excel?
+          </h2>
+          <p class="text-slate-300 text-sm sm:text-base">
+            Menos do que o valor de uma pizza. Uma oportunidade única para você construir autoridade e segurança no trabalho por um valor simbólico de lançamento.
+          </p>
+        </div>
+
+        <!-- Box de Preço Principal -->
+        <div class="max-w-xl mx-auto rounded-3xl p-1 bg-gradient-to-b from-emerald-400 via-emerald-600 to-slate-800 shadow-2xl shadow-emerald-900/40">
+          <div class="rounded-[22px] bg-brand-card p-6 sm:p-10 text-center space-y-6">
+            
+            <!-- Badges do Card -->
+            <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+              <span class="text-xs uppercase font-bold text-slate-400">Turma de Lançamento</span>
+              <span class="px-3 py-1 rounded-full text-xs font-bold bg-rose-950 text-rose-400 border border-rose-800">
+                75% DE DESCONTO
+              </span>
+            </div>
+
+            <!-- Contador de Tempo -->
+            <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800">
+              <p class="text-xs text-slate-400 mb-1">Esta condição especial encerra em breve:</p>
+              <div id="countdown-timer" class="font-mono text-emerald-400 font-extrabold text-base sm:text-lg">
+                Calculando...
+              </div>
+            </div>
+
+            <!-- Preço -->
+            <div class="space-y-1">
+              <p class="text-xs sm:text-sm text-slate-400 line-through">De R$ 197,00 por apenas:</p>
+              <div class="text-4xl sm:text-6xl font-black text-white tracking-tight">
+                R$ 49<span class="text-2xl sm:text-3xl font-bold text-emerald-400">,90</span>
+              </div>
+              <p class="text-xs text-slate-400 pt-1">ou em até 5x de R$ 10,95 na Hotmart</p>
+            </div>
+
+            <!-- O que está incluso -->
+            <div class="text-left space-y-3 pt-4 border-t border-slate-800 text-xs sm:text-sm text-slate-300">
+              <div class="flex items-center gap-3">
+                <span class="w-5 h-5 rounded-full bg-emerald-950 text-emerald-400 flex items-center justify-center font-bold text-xs">✓</span>
+                <span>Curso completo do básico ao intermediário prático</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="w-5 h-5 rounded-full bg-emerald-950 text-emerald-400 flex items-center justify-center font-bold text-xs">✓</span>
+                <span>O Método DDF (Dados, Design e Função)</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="w-5 h-5 rounded-full bg-emerald-950 text-emerald-400 flex items-center justify-center font-bold text-xs">✓</span>
+                <span>PROCV, SE aninhada, Operadores E/OU e Travamentos</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="w-5 h-5 rounded-full bg-emerald-950 text-emerald-400 flex items-center justify-center font-bold text-xs">✓</span>
+                <span>Todas as planilhas dos projetos para download</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="w-5 h-5 rounded-full bg-emerald-950 text-emerald-400 flex items-center justify-center font-bold text-xs">✓</span>
+                <span>Garantia de 7 dias com devolução total do valor</span>
+              </div>
+            </div>
+
+            <!-- Botão Principal Hotmart -->
+            <div class="pt-4 space-y-3">
+              <a 
+                href="https://go.hotmart.com/F108020318M" 
+                class="hotmart-btn animate-pulse-subtle block w-full py-4 px-6 rounded-xl font-extrabold text-base sm:text-lg text-slate-950 bg-gradient-to-r from-emerald-400 via-emerald-300 to-green-500 hover:opacity-95 shadow-xl shadow-emerald-500/30 transition-all transform hover:scale-[1.02]"
+              >
+                QUERO MEU ACESSO IMEDIATO POR R$ 49,90
+              </a>
+
+              <div class="flex items-center justify-center gap-3 text-slate-400 text-xs">
+                <span>🔒 Pagamento 100% Seguro pela Hotmart</span>
+                <span>•</span>
+                <span>Pix ou Cartão</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Por que tão barato? -->
+        <div class="mt-8 text-center max-w-xl mx-auto">
+          <p class="text-xs text-slate-400 leading-relaxed">
+            <strong class="text-slate-300">Por que o valor de R$ 49,90?</strong><br>
+            Estou abrindo esta turma com valor promocional para construir uma comunidade forte de alunos, colher novos depoimentos e validar o método na internet. Aproveite antes do reajuste para o preço oficial.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= GARANTIA 7 DIAS ================= -->
+    <section class="py-14 bg-slate-900/80 border-b border-slate-800">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col sm:flex-row items-center gap-6 p-6 sm:p-8 rounded-2xl bg-brand-card border border-slate-800">
+          <div class="w-20 h-20 rounded-2xl bg-emerald-950 border border-emerald-500/30 flex items-center justify-center text-4xl shrink-0">
+            🛡️
+          </div>
+          <div class="space-y-2 text-center sm:text-left">
+            <h3 class="text-xl font-bold text-white">Garantia Incondicional de 7 Dias Hotmart</h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Você não corre nenhum risco. Se por qualquer motivo você achar que o curso não é para você, basta pedir o reembolso com 1 clique diretamente na plataforma da Hotmart dentro de 7 dias e você receberá 100% do seu dinheiro de volta. Sem perguntas e sem letras miúdas.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FAQ (PERGUNTAS FREQUENTES) ================= -->
+    <section id="faq" class="py-16 md:py-24 bg-brand-dark border-b border-slate-800">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center space-y-4 mb-12">
+          <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-emerald-950 text-emerald-400 border border-emerald-800">
+            Tire Suas Dúvidas
+          </span>
+          <h2 class="text-3xl font-extrabold text-white">Perguntas Frequentes</h2>
+        </div>
+
+        <div class="space-y-3">
+          
+          <!-- FAQ 1 -->
+          <div class="rounded-xl border border-slate-800 bg-brand-card overflow-hidden">
+            <button onclick="toggleFaq(1)" class="w-full p-5 text-left flex items-center justify-between gap-4 focus:outline-none">
+              <span class="font-bold text-sm sm:text-base text-white">Nunca usei o Excel ou sou muito iniciante. Vou conseguir acompanhar?</span>
+              <svg id="faq-icon-1" class="w-4 h-4 text-slate-400 transform transition-transform shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div id="faq-answer-1" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-300 border-t border-slate-800/60 pt-3">
+              Sim! O curso foi desenhado especificamente pensando em quem tem medo de errar ou está começando do absoluto zero. O Prof. Marcos ensina passo a passo, mostrando exatamente onde clicar e qual a lógica de cada função.
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="rounded-xl border border-slate-800 bg-brand-card overflow-hidden">
+            <button onclick="toggleFaq(2)" class="w-full p-5 text-left flex items-center justify-between gap-4 focus:outline-none">
+              <span class="font-bold text-sm sm:text-base text-white">Qual versão do Excel eu preciso ter no meu computador?</span>
+              <svg id="faq-icon-2" class="w-4 h-4 text-slate-400 transform transition-transform shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div id="faq-answer-2" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-300 border-t border-slate-800/60 pt-3">
+              Você pode usar qualquer versão recente do Excel (Excel 2013, 2016, 2019, 2021 ou Microsoft 365), e a maioria das fórmulas ensinadas funciona perfeitamente até mesmo no Google Planilhas gratuito.
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="rounded-xl border border-slate-800 bg-brand-card overflow-hidden">
+            <button onclick="toggleFaq(3)" class="w-full p-5 text-left flex items-center justify-between gap-4 focus:outline-none">
+              <span class="font-bold text-sm sm:text-base text-white">Como eu recebo o acesso ao curso?</span>
+              <svg id="faq-icon-3" class="w-4 h-4 text-slate-400 transform transition-transform shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div id="faq-answer-3" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-300 border-t border-slate-800/60 pt-3">
+              O acesso é imediato! Assim que o seu pagamento for confirmado pela Hotmart (no Pix é na hora, e no cartão leva poucos minutos), você receberá um e-mail com o link de login e senha para a área de membros.
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="rounded-xl border border-slate-800 bg-brand-card overflow-hidden">
+            <button onclick="toggleFaq(4)" class="w-full p-5 text-left flex items-center justify-between gap-4 focus:outline-none">
+              <span class="font-bold text-sm sm:text-base text-white">As planilhas das aulas estão inclusas?</span>
+              <svg id="faq-icon-4" class="w-4 h-4 text-slate-400 transform transition-transform shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div id="faq-answer-4" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-300 border-t border-slate-800/60 pt-3">
+              Sim! Em cada módulo você tem acesso aos arquivos para download: a versão limpa para você fazer os exercícios e a versão pronta com o gabarito comentado para tirar qualquer dúvida.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= RODAPÉ ================= -->
+  <footer class="py-12 bg-slate-950 border-t border-slate-850 text-slate-400 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 border-b border-slate-800/60 pb-8">
+        
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-lg bg-excel-800 flex items-center justify-center text-white font-bold text-lg">
+            X
+          </div>
+          <div>
+            <div class="font-bold text-white text-sm">Prof. Marcos Gomez</div>
+            <div class="text-[11px] text-slate-500">Curso de Excel Prático • Método DDF</div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-6 text-xs">
+          <a href="#" class="instagram-link hover:text-white transition-colors">Instagram</a>
+          <a href="#" class="youtube-link hover:text-white transition-colors">YouTube</a>
+          <a href="#" class="whatsapp-btn hover:text-white transition-colors">WhatsApp de Suporte</a>
+        </div>
+
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left text-[11px] text-slate-500">
+        <div>
+          &copy; <span id="year">2026</span> Prof. Marcos Gomez. Todos os direitos reservados.
+        </div>
+        <div>
+          Este produto é comercializado com o suporte da Hotmart. A plataforma não faz controle editorial prévio do conteúdo.
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ================= BOTÃO FLUTUANTE DE WHATSAPP ================= -->
+  <div class="fixed bottom-6 right-6 z-50">
+    <a 
+      href="#" 
+      class="whatsapp-btn flex items-center gap-2.5 px-4 py-3 rounded-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs sm:text-sm shadow-2xl shadow-emerald-500/50 hover:scale-105 transition-all group"
+      title="Tire suas dúvidas no WhatsApp"
+    >
+      <span class="w-2.5 h-2.5 rounded-full bg-emerald-950 animate-ping"></span>
+      <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+      </svg>
+      <span class="hidden sm:inline">Dúvidas? Fale no WhatsApp</span>
+    </a>
+  </div>
+
+  <!-- ================= MODAL DE SUCESSO DE LEAD ================= -->
+  <div id="leadSuccessModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-brand-card border border-emerald-500/40 rounded-2xl max-w-md w-full p-6 sm:p-8 text-center space-y-4 shadow-2xl">
+      <div class="w-14 h-14 rounded-full bg-emerald-950 text-emerald-400 border border-emerald-500/30 flex items-center justify-center text-2xl mx-auto font-bold">
+        ✓
+      </div>
+      <h3 class="text-xl font-bold text-white">Parabéns! Cadastro Realizado</h3>
+      <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+        Seus dados foram salvos com sucesso! Em instantes você receberá o material exclusivo no seu e-mail ou WhatsApp.
+      </p>
+      <div class="pt-2 flex flex-col gap-2">
+        <a href="#oferta" onclick="closeLeadModal()" class="hotmart-btn py-3 px-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm transition-all">
+          Aproveitar Oferta de R$ 49,90 Agora
+        </a>
+        <button onclick="closeLeadModal()" class="py-2.5 px-4 text-xs text-slate-400 hover:text-slate-200">
+          Fechar Janela
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script Principal -->
+  <script src="assets/main.js"></script>
+</body>
+</html>

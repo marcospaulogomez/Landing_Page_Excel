@@ -1,0 +1,10 @@
+# Arquivos com dados confidenciais e contatos pessoais
+config.js
+.env
+.env.local
+.env.*.local
+
+# Arquivos de sistema / temporários
+.DS_Store
+Thumbs.db
+*.log
