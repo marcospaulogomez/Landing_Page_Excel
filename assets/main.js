@@ -189,4 +189,16 @@ document.addEventListener("DOMContentLoaded", () => {
     link.click();
     document.body.removeChild(link);
   };
+
+  // 10. Barra Fixa de Compra no Mobile (exibe após rolar o Hero)
+  const mobileBar = document.getElementById("mobileStickyBar");
+  if (mobileBar) {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 500) {
+        mobileBar.classList.remove("translate-y-full");
+      } else {
+        mobileBar.classList.add("translate-y-full");
+      }
+    });
+  }
 });
