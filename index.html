@@ -202,125 +202,153 @@
 
           </div>
 
-          <!-- Coluna da Direita: Imagem do Prof. Marcos conectando com o visitante -->
-          <div class="lg:col-span-5 flex justify-center">
-            <div class="relative w-full max-w-sm sm:max-w-md">
+          <!-- Coluna da Direita: Imagem do Prof. Marcos conectando com o visitante (Sem caixa preta) -->
+          <div class="lg:col-span-5 flex flex-col items-center justify-end relative pt-4 lg:pt-0">
+            <!-- Halo de Luz Suave no Fundo -->
+            <div class="absolute w-72 h-72 sm:w-88 sm:h-88 bg-gradient-to-tr from-emerald-500/25 via-emerald-600/30 to-teal-400/15 rounded-full blur-3xl pointer-events-none -z-0"></div>
+
+            <!-- Imagem Recortada Orgânica -->
+            <div class="relative z-10 flex flex-col items-center">
+              <img 
+                src="media/Frente-cropped.png" 
+                alt="Prof. Marcos Gomez" 
+                class="max-h-[360px] sm:max-h-[430px] w-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.7)]"
+                onerror="this.onerror=null; this.src='media/Frente.png';"
+              >
               
-              <!-- Glow de Fundo -->
-              <div class="absolute -inset-1.5 bg-gradient-to-tr from-emerald-600 to-emerald-400 rounded-3xl blur-lg opacity-40 animate-pulse"></div>
-
-              <!-- Card com a foto -->
-              <div class="relative rounded-3xl overflow-hidden bg-slate-900 border border-emerald-500/30 p-2 shadow-2xl">
-                <div class="rounded-2xl overflow-hidden bg-slate-950 aspect-[4/5] relative">
-                  <img 
-                    src="media/Frente.png" 
-                    alt="Prof. Marcos Gomez" 
-                    class="w-full h-full object-cover object-top"
-                    onerror="this.onerror=null; this.src='media/Perfil.png';"
-                  >
-                  <!-- Gradiente na base da foto -->
-                  <div class="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent"></div>
-                  
-                  <!-- Tag flutuante sobre a imagem -->
-                  <div class="absolute bottom-3 inset-x-3 p-3 rounded-xl card-glass border border-emerald-500/30 flex items-center justify-between gap-2">
-                    <div class="flex flex-col text-left">
-                      <span class="text-xs font-bold text-white flex items-center gap-1.5">
-                        Prof. Marcos Gomez
-                        <span class="text-[10px] px-1.5 py-0.2 rounded bg-emerald-500/20 text-emerald-400 font-mono">PUC-GO</span>
-                      </span>
-                      <span class="text-[11px] text-slate-300">Criador do Método DDF de Excel</span>
-                    </div>
-                    <span class="text-xl">📊</span>
-                  </div>
-                </div>
+              <!-- Selo Flutuante Limpo na Base -->
+              <div class="-mt-5 relative z-20 px-4 py-2 rounded-full bg-slate-900/90 backdrop-blur-md border border-emerald-500/40 shadow-xl flex items-center gap-2.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="text-xs font-bold text-white">Prof. Marcos Gomez</span>
+                <span class="text-[11px] text-emerald-400 font-semibold">• Método DDF</span>
               </div>
-
             </div>
           </div>
 
         </div>
 
-        <!-- ================= VISUAL MOCKUP ================= -->
+        <!-- ================= VISUAL MOCKUP (PLANILHA EXCEL REAL COM FUNDO BRANCO) ================= -->
         <div class="mt-14 max-w-5xl mx-auto">
-          <div class="relative rounded-2xl p-1 bg-gradient-to-b from-emerald-500/30 via-slate-700/30 to-transparent shadow-2xl">
-            <div class="rounded-xl overflow-hidden card-glass">
+          <div class="relative rounded-2xl p-1 bg-gradient-to-b from-emerald-500/40 via-slate-600/20 to-transparent shadow-2xl">
+            <div class="rounded-xl overflow-hidden bg-white text-slate-800 shadow-2xl border border-slate-300">
               
-              <!-- Janela Estilo Excel Desktop -->
-              <div class="bg-slate-900/90 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
-                <div class="flex items-center gap-2">
-                  <span class="w-3 h-3 rounded-full bg-rose-500/80"></span>
-                  <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
-                  <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
-                  <span class="text-xs font-mono text-slate-400 ml-3">Projeto_Supermercado_Estoque_PROCV.xlsx</span>
+              <!-- Barra de Título Oficial do Excel (Verde Clássico) -->
+              <div class="bg-[#107c41] px-4 py-2.5 flex items-center justify-between text-white text-xs select-none">
+                <div class="flex items-center gap-3">
+                  <div class="w-6 h-6 rounded bg-white/20 flex items-center justify-center font-black text-white text-xs">
+                    X
+                  </div>
+                  <span class="font-bold text-xs tracking-wide">Projeto_Supermercado_Estoque_PROCV.xlsx - Excel</span>
                 </div>
                 <div class="flex items-center gap-2">
-                  <span class="text-xs px-2.5 py-1 rounded bg-excel-800/80 text-emerald-300 font-mono font-medium">Método DDF Ativo</span>
+                  <span class="px-2.5 py-0.5 rounded-full bg-white/20 text-[11px] font-semibold text-white">Método DDF Ativo</span>
+                  <div class="hidden sm:flex items-center gap-1.5 ml-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-white/40"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-white/40"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-white/40"></span>
+                  </div>
                 </div>
               </div>
 
-              <!-- Prévia Interativa / Visual do Dashboard -->
-              <div class="p-4 sm:p-6 bg-slate-950/70 space-y-4">
-                
-                <!-- Barra de Fórmulas -->
-                <div class="bg-slate-900 p-2.5 rounded-lg border border-slate-800 flex items-center gap-3 text-xs font-mono">
-                  <span class="text-slate-500 font-bold">fx</span>
-                  <span class="text-emerald-400 font-semibold">=SE(E(C4&gt;=7; D4&gt;=75%); "APROVADO"; "REPROVADO")</span>
-                  <span class="ml-auto text-slate-500 text-[11px] hidden sm:inline">PROCV | SE Aninhado | Lógica E/OU</span>
+              <!-- Barra de Fórmulas Oficial do Excel (Fundo Claro) -->
+              <div class="bg-slate-100 border-b border-slate-300 p-2 flex items-center gap-2 text-xs font-mono">
+                <div class="w-14 px-2 py-1 bg-white border border-slate-300 rounded text-center text-slate-700 font-bold shadow-inner">
+                  D4
                 </div>
-
-                <!-- Tabela Estilizada -->
-                <div class="overflow-x-auto">
-                  <table class="w-full text-left text-xs sm:text-sm font-mono border-collapse">
-                    <thead>
-                      <tr class="bg-slate-900 text-slate-400 border-b border-slate-800">
-                        <th class="p-2.5 text-center">#</th>
-                        <th class="p-2.5">PRODUTO / ITEM</th>
-                        <th class="p-2.5">QTD ESTOQUE</th>
-                        <th class="p-2.5">STATUS (SE ANINHADO)</th>
-                        <th class="p-2.5">PREÇO BASE</th>
-                        <th class="p-2.5 text-right">TOTAL (PROCV + DESC)</th>
-                      </tr>
-                    </thead>
-                    <tbody class="divide-y divide-slate-850 text-slate-200">
-                      <tr class="hover:bg-slate-900/50">
-                        <td class="p-2.5 text-center text-slate-500">1</td>
-                        <td class="p-2.5 font-medium text-white">Arroz Tipo 1 - 5kg</td>
-                        <td class="p-2.5">12 un</td>
-                        <td class="p-2.5"><span class="px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800/50 text-xs">NORMAL</span></td>
-                        <td class="p-2.5">R$ 29,90</td>
-                        <td class="p-2.5 text-right text-emerald-400 font-bold">R$ 358,80</td>
-                      </tr>
-                      <tr class="hover:bg-slate-900/50">
-                        <td class="p-2.5 text-center text-slate-500">2</td>
-                        <td class="p-2.5 font-medium text-white">Feijão Carioca - 1kg</td>
-                        <td class="p-2.5 text-rose-400 font-semibold">2 un</td>
-                        <td class="p-2.5"><span class="px-2 py-0.5 rounded bg-rose-950 text-rose-400 border border-rose-800/50 text-xs">EM FALTA</span></td>
-                        <td class="p-2.5">R$ 7,50</td>
-                        <td class="p-2.5 text-right text-emerald-400 font-bold">R$ 15,00</td>
-                      </tr>
-                      <tr class="hover:bg-slate-900/50">
-                        <td class="p-2.5 text-center text-slate-500">3</td>
-                        <td class="p-2.5 font-medium text-white">Óleo de Soja 900ml</td>
-                        <td class="p-2.5 text-amber-400 font-semibold">85 un</td>
-                        <td class="p-2.5"><span class="px-2 py-0.5 rounded bg-amber-950 text-amber-400 border border-amber-800/50 text-xs">EXCESSO</span></td>
-                        <td class="p-2.5">R$ 5,80</td>
-                        <td class="p-2.5 text-right text-emerald-400 font-bold">R$ 493,00</td>
-                      </tr>
-                    </tbody>
-                  </table>
+                <div class="px-2 font-bold text-slate-500 italic select-none">fx</div>
+                <div class="flex-1 px-3 py-1 bg-white border border-slate-300 rounded text-slate-900 font-semibold shadow-inner truncate">
+                  <span class="text-blue-700 font-bold">=SE</span>(<span class="text-amber-700">C4&lt;=5</span>; <span class="text-rose-600 font-bold">"EM FALTA"</span>; <span class="text-blue-700 font-bold">SE</span>(<span class="text-amber-700">C4&gt;=50</span>; <span class="text-amber-600 font-bold">"EXCESSO"</span>; <span class="text-emerald-700 font-bold">"NORMAL"</span>))
                 </div>
+                <span class="text-[11px] text-slate-500 font-sans hidden sm:inline px-2">SE Aninhado em 3 Níveis</span>
+              </div>
 
-                <!-- Destaques do Projeto no Rodapé da Imagem -->
-                <div class="pt-2 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-400 border-t border-slate-800/80">
-                  <div class="flex items-center gap-2">
-                    <span class="inline-block w-2 h-2 rounded-full bg-emerald-500"></span>
-                    <span>Higienização e formatação profissional aplicada</span>
-                  </div>
-                  <div class="text-emerald-400 font-semibold">
-                    100% reproduzível passo a passo nas aulas
-                  </div>
+              <!-- Grid Real da Planilha (Fundo Branco com Linhas de Grade Excel) -->
+              <div class="overflow-x-auto bg-white p-2 sm:p-3">
+                <table class="w-full text-left text-xs sm:text-sm font-sans border-collapse">
+                  <thead>
+                    <!-- Linha com Letras das Colunas (A, B, C, D, E, F) -->
+                    <tr class="bg-slate-100 text-slate-500 font-mono text-center text-[11px] border border-slate-300">
+                      <th class="w-10 p-1.5 border-r border-slate-300 bg-slate-200/80"></th>
+                      <th class="p-1.5 border-r border-slate-300 font-bold">A</th>
+                      <th class="p-1.5 border-r border-slate-300 font-bold">B</th>
+                      <th class="p-1.5 border-r border-slate-300 font-bold">C</th>
+                      <th class="p-1.5 border-r border-slate-300 font-bold">D</th>
+                      <th class="p-1.5 border-r border-slate-300 font-bold">E</th>
+                      <th class="p-1.5 font-bold">F</th>
+                    </tr>
+                    <!-- Cabeçalho Oficial dos Dados (Verde Excel) -->
+                    <tr class="bg-[#107c41] text-white font-bold text-xs uppercase tracking-wider">
+                      <td class="p-2 text-center bg-slate-200 text-slate-600 font-mono text-[11px] border-r border-slate-300 font-bold">1</td>
+                      <th class="p-2.5 border-r border-emerald-600">CÓD</th>
+                      <th class="p-2.5 border-r border-emerald-600">PRODUTO / ITEM</th>
+                      <th class="p-2.5 border-r border-emerald-600 text-center">ESTOQUE</th>
+                      <th class="p-2.5 border-r border-emerald-600 text-center">STATUS (SE)</th>
+                      <th class="p-2.5 border-r border-emerald-600 text-right">PREÇO UNIT.</th>
+                      <th class="p-2.5 text-right">TOTAL ESTOQUE</th>
+                    </tr>
+                  </thead>
+                  <tbody class="text-slate-800 text-xs sm:text-sm divide-y divide-slate-200 font-mono">
+                    <tr class="hover:bg-emerald-50/50 transition-colors">
+                      <td class="p-2 text-center bg-slate-100 text-slate-500 border-r border-slate-300 select-none font-bold">2</td>
+                      <td class="p-2.5 border-r border-slate-200 text-slate-500">101</td>
+                      <td class="p-2.5 border-r border-slate-200 font-semibold text-slate-900 font-sans">Arroz Tipo 1 - 5kg</td>
+                      <td class="p-2.5 border-r border-slate-200 text-center font-bold">12 un</td>
+                      <td class="p-2.5 border-r border-slate-200 text-center">
+                        <span class="inline-block px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold text-xs border border-emerald-300 font-sans">NORMAL</span>
+                      </td>
+                      <td class="p-2.5 border-r border-slate-200 text-right">R$ 29,90</td>
+                      <td class="p-2.5 text-right font-bold text-emerald-800">R$ 358,80</td>
+                    </tr>
+                    <tr class="hover:bg-emerald-50/50 transition-colors">
+                      <td class="p-2 text-center bg-slate-100 text-slate-500 border-r border-slate-300 select-none font-bold">3</td>
+                      <td class="p-2.5 border-r border-slate-200 text-slate-500">102</td>
+                      <td class="p-2.5 border-r border-slate-200 font-semibold text-slate-900 font-sans">Feijão Carioca - 1kg</td>
+                      <td class="p-2.5 border-r border-slate-200 text-center font-bold text-rose-600">2 un</td>
+                      <td class="p-2.5 border-r border-slate-200 text-center">
+                        <span class="inline-block px-2.5 py-0.5 rounded-full bg-rose-100 text-rose-800 font-bold text-xs border border-rose-300 font-sans">EM FALTA</span>
+                      </td>
+                      <td class="p-2.5 border-r border-slate-200 text-right">R$ 7,50</td>
+                      <td class="p-2.5 text-right font-bold text-slate-900">R$ 15,00</td>
+                    </tr>
+                    <tr class="hover:bg-emerald-50/50 transition-colors">
+                      <td class="p-2 text-center bg-slate-100 text-slate-500 border-r border-slate-300 select-none font-bold">4</td>
+                      <td class="p-2.5 border-r border-slate-200 text-slate-500">103</td>
+                      <td class="p-2.5 border-r border-slate-200 font-semibold text-slate-900 font-sans">Óleo de Soja 900ml</td>
+                      <td class="p-2.5 border-r border-slate-200 text-center font-bold text-amber-600">85 un</td>
+                      <td class="p-2.5 border-r border-slate-200 text-center">
+                        <span class="inline-block px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-800 font-bold text-xs border border-amber-300 font-sans">EXCESSO</span>
+                      </td>
+                      <td class="p-2.5 border-r border-slate-200 text-right">R$ 5,80</td>
+                      <td class="p-2.5 text-right font-bold text-emerald-800">R$ 493,00</td>
+                    </tr>
+                    <!-- Linha de Totalizador -->
+                    <tr class="bg-slate-50 font-bold border-t-2 border-slate-300">
+                      <td class="p-2 text-center bg-slate-100 text-slate-500 border-r border-slate-300 select-none font-bold">5</td>
+                      <td colspan="4" class="p-2.5 border-r border-slate-200 text-right text-slate-600 uppercase font-sans text-xs">Total Geral em Estoque:</td>
+                      <td colspan="2" class="p-2.5 text-right text-emerald-800 text-base font-extrabold bg-emerald-50">R$ 866,80</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Abas Inferiores Autênticas do Excel -->
+              <div class="bg-slate-100 border-t border-slate-300 px-3 py-1.5 flex items-center justify-between text-xs text-slate-600 select-none">
+                <div class="flex items-center gap-1">
+                  <span class="px-3 py-1 bg-white border-t-2 border-[#107c41] font-bold text-slate-800 text-[11px] shadow-sm rounded-t">
+                    Controle_Estoque
+                  </span>
+                  <span class="px-3 py-1 text-slate-500 hover:text-slate-800 text-[11px] cursor-default hidden sm:inline">
+                    Pesquisa_Supermercado
+                  </span>
+                  <span class="px-3 py-1 text-slate-500 hover:text-slate-800 text-[11px] cursor-default hidden sm:inline">
+                    Comprovante_PROCV
+                  </span>
+                  <span class="w-5 h-5 flex items-center justify-center text-slate-400 font-bold">+</span>
                 </div>
-
+                <div class="text-[11px] text-slate-500 flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                  <span>100% reproduzível nas aulas práticas</span>
+                </div>
               </div>
 
             </div>
@@ -717,22 +745,70 @@
         
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          <!-- Foto / Avatar do Professor -->
-          <div class="lg:col-span-5 flex flex-col items-center text-center">
-            <div class="relative w-64 h-64 sm:w-72 sm:h-72 rounded-3xl overflow-hidden p-1.5 bg-gradient-to-tr from-emerald-500 via-excel-600 to-emerald-400 shadow-2xl shadow-emerald-950/60">
-              <img 
-                src="media/Perfil.png" 
-                alt="Prof. Marcos Gomez" 
-                class="w-full h-full object-cover object-top rounded-[20px] bg-slate-900"
-                onerror="this.onerror=null; this.src='media/Frente.png';"
-              >
+          <!-- Foto / Avatar do Professor e Redes de Destaque -->
+          <div class="lg:col-span-5 flex flex-col items-center text-center space-y-4">
+            
+            <!-- Foto Circular Elegante (Sem caixa preta vazia) -->
+            <div class="relative w-52 h-52 sm:w-60 sm:h-60 rounded-full p-1.5 bg-gradient-to-tr from-emerald-500 via-excel-600 to-emerald-400 shadow-2xl shadow-emerald-950/70">
+              <div class="w-full h-full rounded-full overflow-hidden bg-slate-900 border-2 border-slate-800">
+                <img 
+                  src="media/Perfil-cropped.png" 
+                  alt="Prof. Marcos Gomez" 
+                  class="w-full h-full object-cover object-top"
+                  onerror="this.onerror=null; this.src='media/Perfil.png';"
+                >
+              </div>
             </div>
             
             <!-- Selo da Lambda Tecnologia -->
-            <div class="mt-5 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 border border-slate-700 text-xs text-slate-300">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 border border-slate-700 text-xs text-slate-300">
               <img src="media/lambda.png" alt="Lambda Tecnologia" class="h-4 w-auto object-contain" onerror="this.style.display='none';">
               <span>Fundador da <strong>Lambda Tecnologia</strong></span>
             </div>
+
+            <!-- Links de Destaque das Redes Sociais no espaço abaixo da foto -->
+            <div class="w-full max-w-xs pt-2 space-y-2.5">
+              
+              <!-- Card / Botão Instagram -->
+              <a 
+                href="https://www.instagram.com/marcospaulogomez/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="instagram-link group w-full p-3 rounded-xl bg-gradient-to-r from-purple-950/50 via-pink-950/40 to-slate-900 border border-pink-500/40 hover:border-pink-500 shadow-lg flex items-center justify-between transition-all hover:scale-[1.02]"
+              >
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-lg bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 flex items-center justify-center text-white shrink-0 shadow-md">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                  </div>
+                  <div class="text-left">
+                    <div class="text-[10px] text-pink-400 font-bold uppercase tracking-wider">Instagram</div>
+                    <div class="text-xs font-bold text-white">@marcospaulogomez</div>
+                  </div>
+                </div>
+                <span class="text-xs font-bold text-pink-400 group-hover:translate-x-1 transition-transform">&rarr;</span>
+              </a>
+
+              <!-- Card / Botão YouTube -->
+              <a 
+                href="https://www.youtube.com/@marcospaulogomez" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="youtube-link group w-full p-3 rounded-xl bg-gradient-to-r from-red-950/50 via-slate-900 to-slate-900 border border-rose-500/40 hover:border-rose-500 shadow-lg flex items-center justify-between transition-all hover:scale-[1.02]"
+              >
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-lg bg-rose-600 flex items-center justify-center text-white shrink-0 shadow-md">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                  </div>
+                  <div class="text-left">
+                    <div class="text-[10px] text-rose-400 font-bold uppercase tracking-wider">Canal no YouTube</div>
+                    <div class="text-xs font-bold text-white">@marcospaulogomez</div>
+                  </div>
+                </div>
+                <span class="text-xs font-bold text-rose-400 group-hover:translate-x-1 transition-transform">&rarr;</span>
+              </a>
+
+            </div>
+
           </div>
 
           <!-- Texto do Professor -->
@@ -779,79 +855,6 @@
             </div>
 
           </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ================= REDES SOCIAIS COM ALTO DESTAQUE ================= -->
-    <section class="py-14 bg-gradient-to-b from-slate-900 to-brand-dark border-b border-slate-800">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="text-center max-w-2xl mx-auto mb-10 space-y-3">
-          <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-slate-800 text-emerald-400 border border-slate-700">
-            Acompanhe Diariamente
-          </span>
-          <h3 class="text-2xl sm:text-3xl font-extrabold text-white">
-            Conecte-se com o Prof. Marcos nas Redes Sociais
-          </h3>
-          <p class="text-slate-400 text-xs sm:text-sm">
-            Dicas práticas gratuitas, bastidores, tutoriais de Excel e novidades sobre Inteligência Artificial.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          
-          <!-- Card Instagram -->
-          <a 
-            href="https://www.instagram.com/marcospaulogomez/" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            class="instagram-link group p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 border border-pink-500/30 hover:border-pink-500/70 shadow-xl hover:shadow-pink-500/10 transition-all transform hover:-translate-y-1 block"
-          >
-            <div class="flex items-start gap-4">
-              <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 flex items-center justify-center text-white shrink-0 shadow-lg shadow-rose-500/20 group-hover:scale-105 transition-transform">
-                <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-              </div>
-              <div class="space-y-1">
-                <span class="text-xs uppercase font-extrabold tracking-wider text-pink-400">Instagram Oficial</span>
-                <h4 class="text-lg font-bold text-white group-hover:text-pink-300 transition-colors">@marcospaulogomez</h4>
-                <p class="text-xs text-slate-400 leading-relaxed">
-                  Carrosséis rápidos de fórmulas, dicas de atalhos e bastidores dos treinamentos da Lambda.
-                </p>
-                <div class="pt-3 inline-flex items-center gap-1.5 text-xs font-bold text-pink-400 group-hover:text-pink-300">
-                  <span>Seguir no Instagram</span>
-                  <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
-                </div>
-              </div>
-            </div>
-          </a>
-
-          <!-- Card YouTube -->
-          <a 
-            href="https://www.youtube.com/@marcospaulogomez" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            class="youtube-link group p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 border border-rose-500/30 hover:border-rose-500/70 shadow-xl hover:shadow-rose-500/10 transition-all transform hover:-translate-y-1 block"
-          >
-            <div class="flex items-start gap-4">
-              <div class="w-14 h-14 rounded-2xl bg-rose-600 flex items-center justify-center text-white shrink-0 shadow-lg shadow-rose-600/30 group-hover:scale-105 transition-transform">
-                <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-              </div>
-              <div class="space-y-1">
-                <span class="text-xs uppercase font-extrabold tracking-wider text-rose-400">Canal no YouTube</span>
-                <h4 class="text-lg font-bold text-white group-hover:text-rose-300 transition-colors">@marcospaulogomez</h4>
-                <p class="text-xs text-slate-400 leading-relaxed">
-                  Aulas passo a passo completas, resolução de exercícios e tutoriais práticos na tela.
-                </p>
-                <div class="pt-3 inline-flex items-center gap-1.5 text-xs font-bold text-rose-400 group-hover:text-rose-300">
-                  <span>Inscrever-se no Canal</span>
-                  <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
-                </div>
-              </div>
-            </div>
-          </a>
 
         </div>
 
