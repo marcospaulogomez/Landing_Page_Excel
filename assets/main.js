@@ -167,4 +167,26 @@ document.addEventListener("DOMContentLoaded", () => {
       leadSuccessModal.classList.remove("flex");
     }
   };
+
+  // 9. Ferramenta útil: Exportar Leads locais para CSV (Pressione no console ou chame exportLeads())
+  window.exportLeads = function() {
+    const leads = JSON.parse(localStorage.getItem("leads_excel") || "[]");
+    if (leads.length === 0) {
+      alert("Nenhum lead capturado localmente ainda.");
+      return;
+    }
+
+    let csvContent = "data:text/csv;charset=utf-8,Nome,Email,WhatsApp,Data\n";
+    leads.forEach(l => {
+      csvContent += `"${l.nome}","${l.email}","${l.whatsapp}","${l.data}"\n`;
+    });
+
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", `leads_excel_${new Date().toISOString().slice(0,10)}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 });
