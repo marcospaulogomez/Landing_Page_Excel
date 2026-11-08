@@ -23,7 +23,7 @@ window.APP_CONFIG = {
   INSTAGRAM_URL: "https://instagram.com/seu_perfil",
   YOUTUBE_URL: "https://youtube.com/@seu_canal",
 
-  // Endpoint para o formulário de Leads (Ex: Formspree, Google Sheets / SheetMonkey, Make, etc.)
-  // Deixe vazio ("") para usar envio simulado direto para o WhatsApp do aluno
+  // Endpoint para o formulário de Leads (URL do Google Sheets Apps Script /exec, SheetMonkey, Formspree, etc.)
+  // Veja o passo a passo gratuito no arquivo 'google-sheets-script.js'
   LEAD_FORM_ENDPOINT: ""
 };

@@ -6,7 +6,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Carrega configurações com fallback seguro
   const config = window.APP_CONFIG || {
-    HOTMART_CHECKOUT_URL: "https://go.hotmart.com/F108020318M",
+    HOTMART_CHECKOUT_URL: "https://pay.hotmart.com/F108020318M",
     WHATSAPP_NUMBER: "5511999999999",
     WHATSAPP_DEFAULT_MESSAGE: "Olá Prof. Marcos! Gostaria de tirar uma dúvida sobre o Curso de Excel.",
     INSTAGRAM_URL: "https://instagram.com",
@@ -119,26 +119,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const formData = new FormData(leadForm);
       const leadData = {
+        data: new Date().toLocaleString("pt-BR"),
         nome: formData.get("nome"),
         email: formData.get("email"),
         whatsapp: formData.get("whatsapp"),
-        origem: "Landing Page Excel - Prof. Marcos",
-        data: new Date().toISOString()
+        origem: "Landing Page Excel - Prof. Marcos"
       };
 
       try {
-        // Se houver endpoint configurado (Formspree, Make, Sheets), envia
+        // Sempre salva cópia de segurança localmente
+        const localLeads = JSON.parse(localStorage.getItem("leads_excel") || "[]");
+        localLeads.push(leadData);
+        localStorage.setItem("leads_excel", JSON.stringify(localLeads));
+
+        // Se houver endpoint configurado (Google Sheets Apps Script, SheetMonkey, Formspree, Make), envia
         if (config.LEAD_FORM_ENDPOINT && config.LEAD_FORM_ENDPOINT.startsWith("http")) {
+          const isGoogleScript = config.LEAD_FORM_ENDPOINT.includes("script.google.com");
+
           await fetch(config.LEAD_FORM_ENDPOINT, {
             method: "POST",
-            headers: { "Content-Type": "application/json", "Accept": "application/json" },
+            mode: isGoogleScript ? "no-cors" : "cors",
+            headers: {
+              "Content-Type": isGoogleScript ? "text/plain;charset=utf-8" : "application/json",
+              "Accept": "application/json"
+            },
             body: JSON.stringify(leadData)
           });
-        } else {
-          // Fallback: armazena localmente
-          const localLeads = JSON.parse(localStorage.getItem("leads_excel") || "[]");
-          localLeads.push(leadData);
-          localStorage.setItem("leads_excel", JSON.stringify(localLeads));
         }
 
         // Abre modal de sucesso
