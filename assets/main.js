@@ -4,14 +4,14 @@
  */
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Carrega configurações com fallback seguro
+  // Carrega configurações com fallback seguro (para funcionar também no GitHub Pages / Vercel)
   const config = window.APP_CONFIG || {
     HOTMART_CHECKOUT_URL: "https://pay.hotmart.com/F108020318M",
     WHATSAPP_NUMBER: "5511999999999",
-    WHATSAPP_DEFAULT_MESSAGE: "Olá Prof. Marcos! Gostaria de tirar uma dúvida sobre o Curso de Excel.",
-    INSTAGRAM_URL: "https://instagram.com",
-    YOUTUBE_URL: "https://youtube.com",
-    LEAD_FORM_ENDPOINT: ""
+    WHATSAPP_DEFAULT_MESSAGE: "Olá Prof. Marcos! Tenho interesse no curso de Excel por R$ 49,90 e gostaria de tirar uma dúvida.",
+    INSTAGRAM_URL: "https://www.instagram.com/marcospaulogomez/",
+    YOUTUBE_URL: "https://www.youtube.com/@marcospaulogomez",
+    LEAD_FORM_ENDPOINT: "https://script.google.com/macros/s/AKfycbxzRevSbbe9IVdUGtFrrMU8sXNJJ6Q98-TkZzRD3SzQG_GxIKJs9c82L6fycXKbunvb/exec"
   };
 
   // 1. Atualizar links da Hotmart em todos os botões com a classe .hotmart-btn
@@ -136,15 +136,29 @@ document.addEventListener("DOMContentLoaded", () => {
         if (config.LEAD_FORM_ENDPOINT && config.LEAD_FORM_ENDPOINT.startsWith("http")) {
           const isGoogleScript = config.LEAD_FORM_ENDPOINT.includes("script.google.com");
 
-          await fetch(config.LEAD_FORM_ENDPOINT, {
-            method: "POST",
-            mode: isGoogleScript ? "no-cors" : "cors",
-            headers: {
-              "Content-Type": isGoogleScript ? "text/plain;charset=utf-8" : "application/json",
-              "Accept": "application/json"
-            },
-            body: JSON.stringify(leadData)
-          });
+          if (isGoogleScript) {
+            const params = new URLSearchParams();
+            params.append("data", leadData.data);
+            params.append("nome", leadData.nome);
+            params.append("email", leadData.email);
+            params.append("whatsapp", leadData.whatsapp);
+            params.append("origem", leadData.origem);
+
+            await fetch(config.LEAD_FORM_ENDPOINT, {
+              method: "POST",
+              mode: "no-cors",
+              body: params
+            });
+          } else {
+            await fetch(config.LEAD_FORM_ENDPOINT, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+              },
+              body: JSON.stringify(leadData)
+            });
+          }
         }
 
         // Abre modal de sucesso
